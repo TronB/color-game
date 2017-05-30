@@ -9,6 +9,7 @@ let colors = [  'rgb(255, 0, 0)',
 let body = document.getElementsByTagName('body')
 const squares = document.querySelectorAll('.square')
 const rgbDisplay = document.getElementById('picked-color')
+const gameStatus = document.getElementById('game-status')
 let pickedColor = colors[3]
 
 rgbDisplay.textContent = pickedColor
@@ -18,11 +19,11 @@ for (let i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', function(){
      console.log(this.style.backgroundColor)
      if(this.style.backgroundColor === pickedColor){
-       alert('you got it right!')
+       gameStatus.textContent = 'Correct!'
       //  background.style.backgroundColor = pickedColor
      } else{
-       this.style
-       alert('Wrong Pick Again!')
+       this.style.backgroundColor = '#232323'
+       gameStatus.textContent = 'Try Again'
      }
 })
 }

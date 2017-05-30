@@ -7,6 +7,11 @@ h1{
   text-align: center;
 }
 
+#game-status{
+  background-color: white;
+
+}
+
 .square{
   width: 30%;
   background: purple;
