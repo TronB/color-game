@@ -6,7 +6,53 @@ const rgbDisplay = document.getElementById('picked-color')
 const gameStatus = document.getElementById('game-status')
 const headerDisplay = document.getElementsByTagName('h1')[0]
 const resetButton = document.querySelector('#reset')
+const easyButton = document.getElementById('easy-button')
+const hardButton = document.getElementById('hard-button')
 let pickedColor = pickColor()
+
+easyButton.addEventListener('click', function(){
+  easyButton.classList.add('selected')
+  hardButton.classList.remove('selected')
+  //show the winning color numbers in the rgb displayed
+  rgbDisplay.textContent = pickedColor
+  //generate three new colors
+  colors = generateRandomColors(3)
+  pickedColor = pickColor()
+ for (let i = 0; i < squares.length; i++) {
+    if (colors[i]){
+      squares[i].style.backgroundColor = colors[i]
+    } else{
+      squares[i].style.display = 'none'
+    }
+ }
+  //pick one of the three displayed
+
+
+  //generate 3 squares with different colors, with one being the winning square
+})
+
+hardButton.addEventListener('click', function(){
+  easyButton.classList.remove('selected')
+  hardButton.classList.add('selected')
+  //show the winning color numbers in the rgb displayed
+  rgbDisplay.textContent = pickedColor
+  //generate three new colors
+  colors = generateRandomColors(6)
+  pickedColor = pickColor()
+ for (let i = 0; i < squares.length; i++) {
+      squares[i].style.backgroundColor = colors[i]
+      squares[i].style.display = 'block'
+    }
+ })
+
+hardButton.addEventListener('click', function(){
+  easyButton.classList.remove('selected')
+  hardButton.classList.add('selected')
+  //generate 6 new colors
+  //pick one of the 6 displayed
+  //show the winning color numbers in the rgb displayed
+  //generate 6 squares with different colors, with one being the winning square
+})
 
 resetButton.addEventListener('click', function(){
   //generate all new colors
