@@ -5,7 +5,23 @@ const squares = document.querySelectorAll('.square')
 const rgbDisplay = document.getElementById('picked-color')
 const gameStatus = document.getElementById('game-status')
 const headerDisplay = document.getElementsByTagName('h1')[0]
-const pickedColor = pickColor()
+const resetButton = document.querySelector('#reset')
+let pickedColor = pickColor()
+
+resetButton.addEventListener('click', function(){
+  //generate all new colors
+  colors = generateRandomColors(6)
+  //pick a new color from the array
+  pickedColor = pickColor()
+  //change back winning rgb text to pickedColor
+  rgbDisplay.textContent = pickedColor
+  //re-randomize the square colors
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colors[i]
+  }
+  //change back header display color to background color
+  headerDisplay.style.backgroundColor = '#232323'
+})
 
 rgbDisplay.textContent = pickedColor
 
@@ -20,14 +36,15 @@ for (let i = 0; i < squares.length; i++) {
      //add logic to match colors
      if(clickedColor === pickedColor){
        gameStatus.textContent = 'Correct!'
+       resetButton.textContent = 'Play Again?'
        //change all colors to picked color
        changeColor(clickedColor)
        //change header background color to match winning color
        headerDisplay.style.backgroundColor = clickedColor
 
+
      } else{
        //change wrong colored squares to background color
-       //console.log(this.style.backgroundColor)
        this.style.backgroundColor = '#232323'
        gameStatus.textContent = 'Try Again'
      }
@@ -45,6 +62,7 @@ function pickColor(){
   return colors[randomNumber]
 }
 
+//to push random rgb color values () to an array
 function generateRandomColors(num){
   //make an array
   let arr = []
@@ -56,7 +74,7 @@ function generateRandomColors(num){
   //return that array
   return arr
 }
-
+//to create random rgb numbers
 function randomColor() {
   //pick a red color from 0 - 255
   const r = Math.floor(Math.random() * 256)
