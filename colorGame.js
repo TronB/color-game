@@ -12,6 +12,7 @@ let pickedColor = pickColor()
 
 easyButton.addEventListener('click', function(){
   numOfSquares = 3
+  gameStatus.textContent = ''
   headerDisplay.style.backgroundColor = 'steelblue'
   easyButton.classList.add('selected')
   hardButton.classList.remove('selected')
@@ -35,6 +36,7 @@ easyButton.addEventListener('click', function(){
 
 hardButton.addEventListener('click', function(){
   numOfSquares = 6
+  gameStatus.textContent = ''
   headerDisplay.style.backgroundColor = 'steelblue'
   easyButton.classList.remove('selected')
   hardButton.classList.add('selected')
