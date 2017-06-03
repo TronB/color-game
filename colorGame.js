@@ -12,7 +12,7 @@ let pickedColor = pickColor()
 
 easyButton.addEventListener('click', function(){
   numOfSquares = 3
-  headerDisplay.style.backgroundColor = '#232323'
+  headerDisplay.style.backgroundColor = 'steelblue'
   easyButton.classList.add('selected')
   hardButton.classList.remove('selected')
   //show the winning color numbers in the rgb displayed
@@ -35,7 +35,7 @@ easyButton.addEventListener('click', function(){
 
 hardButton.addEventListener('click', function(){
   numOfSquares = 6
-  headerDisplay.style.backgroundColor = '#232323'
+  headerDisplay.style.backgroundColor = 'steelblue'
   easyButton.classList.remove('selected')
   hardButton.classList.add('selected')
   //show the winning color numbers in the rgb displayed
@@ -70,7 +70,7 @@ resetButton.addEventListener('click', function(){
     squares[i].style.backgroundColor = colors[i]
   }
   //change back header display color to background color
-  headerDisplay.style.backgroundColor = '#232323'
+  headerDisplay.style.backgroundColor = 'steelblue'
 })
 
 rgbDisplay.textContent = pickedColor
