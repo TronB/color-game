@@ -1,5 +1,5 @@
-let colors = generateRandomColors(6)
-
+let numOfSquares = 6
+let colors = generateRandomColors(numOfSquares)
 const body = document.getElementsByTagName('body')
 const squares = document.querySelectorAll('.square')
 const rgbDisplay = document.getElementById('picked-color')
@@ -11,12 +11,14 @@ const hardButton = document.getElementById('hard-button')
 let pickedColor = pickColor()
 
 easyButton.addEventListener('click', function(){
+  numOfSquares = 3
+  headerDisplay.style.backgroundColor = '#232323'
   easyButton.classList.add('selected')
   hardButton.classList.remove('selected')
   //show the winning color numbers in the rgb displayed
   rgbDisplay.textContent = pickedColor
   //generate three new colors
-  colors = generateRandomColors(3)
+  colors = generateRandomColors(numOfSquares)
   pickedColor = pickColor()
  for (let i = 0; i < squares.length; i++) {
     if (colors[i]){
@@ -32,12 +34,14 @@ easyButton.addEventListener('click', function(){
 })
 
 hardButton.addEventListener('click', function(){
+  numOfSquares = 6
+  headerDisplay.style.backgroundColor = '#232323'
   easyButton.classList.remove('selected')
   hardButton.classList.add('selected')
   //show the winning color numbers in the rgb displayed
   rgbDisplay.textContent = pickedColor
-  //generate three new colors
-  colors = generateRandomColors(6)
+  //generate 6 new colors
+  colors = generateRandomColors(numOfSquares)
   pickedColor = pickColor()
  for (let i = 0; i < squares.length; i++) {
       squares[i].style.backgroundColor = colors[i]
@@ -56,7 +60,7 @@ hardButton.addEventListener('click', function(){
 
 resetButton.addEventListener('click', function(){
   //generate all new colors
-  colors = generateRandomColors(6)
+  colors = generateRandomColors(numOfSquares)
   //pick a new color from the array
   pickedColor = pickColor()
   //change back winning rgb text to pickedColor
