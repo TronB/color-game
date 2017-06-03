@@ -57,6 +57,7 @@ resetButton.addEventListener('click', function(){
   pickedColor = pickColor()
   //change back winning rgb text to pickedColor
   rgbDisplay.textContent = pickedColor
+  this.textContent = 'New Colors'
   //re-randomize the square colors
   for (let i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = colors[i]
