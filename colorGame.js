@@ -49,16 +49,8 @@ hardButton.addEventListener('click', function(){
     }
  })
 
-hardButton.addEventListener('click', function(){
-  easyButton.classList.remove('selected')
-  hardButton.classList.add('selected')
-  //generate 6 new colors
-  //pick one of the 6 displayed
-  //show the winning color numbers in the rgb displayed
-  //generate 6 squares with different colors, with one being the winning square
-})
-
 resetButton.addEventListener('click', function(){
+  gameStatus.textContent = ''
   //generate all new colors
   colors = generateRandomColors(numOfSquares)
   //pick a new color from the array
